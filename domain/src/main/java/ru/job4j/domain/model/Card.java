@@ -12,14 +12,14 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "customer")
-public class Customer {
+@Table(name = "card")
+public class Card {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     private long id;
-    private String username;
-    private String password;
-    private String phone;
-    private String email;
+    private String number;
+    private double discount;
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
 }
