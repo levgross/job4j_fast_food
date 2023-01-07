@@ -3,5 +3,6 @@ create table customer (
     username varchar unique not null,
     password varchar not null,
     phone varchar unique not null,
-    email varchar unique
+    email varchar unique,
+    card_id int references card(id)
 );

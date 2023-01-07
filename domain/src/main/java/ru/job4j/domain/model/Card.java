@@ -17,9 +17,5 @@ public class Card {
     @Id
     @EqualsAndHashCode.Include
     private long id;
-    private String number;
     private double discount;
-    @ManyToOne
-    @JoinColumn(name = "customer_id")
-    private Customer customer;
 }

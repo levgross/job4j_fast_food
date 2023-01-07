@@ -22,4 +22,7 @@ public class Customer {
     private String password;
     private String phone;
     private String email;
+    @ManyToOne
+    @JoinColumn(name = "card_id")
+    private Card card;
 }
