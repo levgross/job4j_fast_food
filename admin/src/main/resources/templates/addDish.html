@@ -42,11 +42,11 @@
                     <input type="hidden" name="id" value="0"/>
                     <div class="form-group">
                         <label for="name">Название блюда</label>
-						<input type="text" class="form-control" name="name" id="name"/>
+						<input type="text" class="form-control" name="name" id="name" th:value="${dish.name}"/>
 					</div>
 					<div class="form-group">
                         <label for="description">Описание блюда</label>
-                        <input type="text" class="form-control" name="description" id="description"/>
+                        <input type="text" class="form-control" name="description" id="description" th:value="${dish.description}"/>
                         </label>
                     </div>
                     <div class="form-group">
@@ -55,7 +55,7 @@
                     </div>
 					<div class="form-group">
                         <label for="price">Цена блюда</label>
-						<input type="text" class="form-control" name="price" id="price"/>
+						<input type="text" class="form-control" name="price" id="price" th:value="${dish.price}"/>
 					</div>
                     <button type="submit" class="btn btn-primary mt-3">Сохранить</button>
                 </form>

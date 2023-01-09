@@ -42,22 +42,28 @@
 				    <input type="hidden" name="id" th:field="*{id}"/>
                     <div class="form-group">
                         <label for="name">Название блюда</label>
-						<input type="text" class="form-control" name="name" id="name"/>
+						<input type="text" class="form-control" name="name" id="name" th:value="${dish.name}"/>
 					</div>
 					<div class="form-group">
                         <label for="description">Описание блюда</label>
-                        <input type="text" class="form-control" name="description" id="description"/>
+                        <input type="text" class="form-control" name="description" id="description" th:value="${dish.description}"/>
                         </label>
                     </div>
                     <div class="form-group">
                         <label for="file">Фотография</label>
-                        <input type="file" class="form-control" name="file" id="file">
+                        <input type="file" class="form-control" name="file" id="file" th:value="${dish.photo}">
                     </div>
 					<div class="form-group">
                         <label for="price">Цена блюда</label>
-						<input type="text" class="form-control" name="price" id="price"/>
+						<input type="text" class="form-control" name="price" id="price" th:value="${dish.price}"/>
 					</div>
+					<div>
                     <button type="submit" class="btn btn-primary">Сохранить</button>
+					</div>
+					<a/>
+                    <div class="button">
+                        <a class="btn btn-primary" th:href="@{/deleteDish/${dish.id}}" role="button">Удалить блюдо</a>
+                    </div>
                 </form>
             </div>
         </div>

@@ -14,10 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import ru.job4j.admin.service.DishAPIService;
 import ru.job4j.domain.model.Dish;
 
-import javax.servlet.http.HttpSession;
-import java.io.File;
 import java.io.IOException;
-import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Controller
@@ -50,7 +47,11 @@ public class DishController {
 
     @GetMapping("formUpdateDish/{id}")
     public String formUpdateDish(Model model, @PathVariable("id") int id) {
-        model.addAttribute("dish", service.findById(id));
+        Optional<Dish> dishOpt = service.findById(id);
+        if (dishOpt.isEmpty()) {
+            return "404";
+        }
+        model.addAttribute("dish", dishOpt.get());
         return "updateDish";
     }
 
