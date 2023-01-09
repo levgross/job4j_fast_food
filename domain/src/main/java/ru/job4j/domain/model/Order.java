@@ -33,5 +33,5 @@ public class Order {
     private List<Dish> dishes = new ArrayList<>();
     private int sum;
     @Enumerated(EnumType.STRING)
-    private Status status;
+    private OrderStatus orderStatus;
 }
