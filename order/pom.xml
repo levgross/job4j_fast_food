@@ -54,7 +54,6 @@
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <version>42.2.9</version>
-            <scope>production</scope>
         </dependency>
         <dependency>
             <groupId>com.h2database</groupId>

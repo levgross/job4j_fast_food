@@ -15,6 +15,7 @@ import javax.persistence.*;
 @Table(name = "card")
 public class Card {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @EqualsAndHashCode.Include
     private long id;
     private double discount;

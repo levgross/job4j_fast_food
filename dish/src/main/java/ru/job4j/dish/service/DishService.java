@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.Optional;
 
 public interface DishService {
-    Optional<Dish> addDish(Dish dish);
-    Optional<Dish> editDish(Dish dish);
-    boolean deleteDish(Dish dish);
-    Optional<Dish> findDishById(int id);
+    Dish addDish(Dish dish);
+    boolean editDish(Dish dish);
+    boolean deleteDish(long id);
+    Optional<Dish> findDishById(long id);
     List<Dish> findAllDishes();
 }
