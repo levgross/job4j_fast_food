@@ -1,6 +1,5 @@
 package ru.job4j.admin.service;
 
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.ParameterizedTypeReference;
@@ -17,13 +16,16 @@ import java.util.Optional;
 
 @Service
 @PropertySource("classpath:application.properties")
-@AllArgsConstructor
 public class DishAPIService {
 
     @Value("${dish-api-url}")
     private String url;
 
     private final RestTemplate client;
+
+    public DishAPIService(RestTemplate client) {
+        this.client = client;
+    }
 
     public Dish addDish(Dish dish) {
         return client.postForEntity(
