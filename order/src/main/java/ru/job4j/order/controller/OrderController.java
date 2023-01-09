@@ -26,7 +26,6 @@ public class OrderController {
                                   HttpSession httpSession) {
         Customer customer = (Customer) httpSession.getAttribute("user");
         boolean status = customer != null;
-//        customer.setCard(cardService.findById(cardId));
         return ResponseEntity
                 .status(status ? HttpStatus.OK : HttpStatus.NOT_FOUND)
                 .build();
