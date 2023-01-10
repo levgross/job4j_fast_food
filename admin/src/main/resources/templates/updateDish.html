@@ -51,7 +51,7 @@
                     </div>
                     <div class="form-group">
                         <label for="file">Фотография</label>
-                        <input type="file" class="form-control" name="file" id="file" th:value="${dish.photo}">
+                        <input type="file" class="form-control" name="file" id="file">
                     </div>
 					<div class="form-group">
                         <label for="price">Цена блюда</label>
@@ -60,10 +60,6 @@
 					<div>
                     <button type="submit" class="btn btn-primary">Сохранить</button>
 					</div>
-					<a/>
-                    <div class="button">
-                        <a class="btn btn-primary" th:href="@{/deleteDish/${dish.id}}" role="button">Удалить блюдо</a>
-                    </div>
                 </form>
             </div>
         </div>
