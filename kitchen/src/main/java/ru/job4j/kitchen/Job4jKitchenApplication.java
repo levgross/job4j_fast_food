@@ -1,4 +1,4 @@
-package ru.job4j.notification;
+package ru.job4j.kitchen;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,12 +8,12 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 
 @SpringBootApplication
 @EntityScan(basePackages = {"ru.job4j.domain.model"})
-public class Job4jNotificationApplication extends SpringBootServletInitializer {
+public class Job4jKitchenApplication extends SpringBootServletInitializer {
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(Job4jNotificationApplication.class);
+        return application.sources(Job4jKitchenApplication.class);
     }
     public static void main(String[] args) {
-        SpringApplication.run(Job4jNotificationApplication.class, args);
+        SpringApplication.run(Job4jKitchenApplication.class, args);
     }
 }

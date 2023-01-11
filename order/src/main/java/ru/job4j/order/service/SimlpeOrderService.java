@@ -18,6 +18,15 @@ public class SimlpeOrderService implements OrderService {
     }
 
     @Override
+    public boolean edit(Order order) {
+        if (!repository.existsById(order.getId())) {
+            return false;
+        }
+        repository.save(order);
+        return true;
+    }
+
+    @Override
     public Optional<Order> findById(long id) {
         return repository.findById(id);
     }

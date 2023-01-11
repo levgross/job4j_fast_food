@@ -7,6 +7,7 @@ import java.util.Optional;
 
 public interface OrderService {
     Order createOrder(Order order);
+    boolean edit(Order order);
     Optional<Order> findById(long id);
     OrderStatus checkStatus(long orderId);
 }

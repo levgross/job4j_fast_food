@@ -1,5 +1,5 @@
 package ru.job4j.domain.model;
 
 public enum OrderStatus {
-    CREATED, PAID, CANCELED, READY, DELIVERY, FINISHED
+    CREATED, COOKED, PAID, CANCELED, DELIVERY, FINISHED
 }
