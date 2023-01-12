@@ -3,7 +3,6 @@ package ru.job4j.order.controller;
 import lombok.AllArgsConstructor;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.kafka.annotation.KafkaListener;
-import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.*;
 import ru.job4j.domain.model.Customer;
 import ru.job4j.domain.model.Dish;
@@ -19,7 +18,6 @@ import java.util.Optional;
 @AllArgsConstructor
 public class OrderController {
     private final OrderService orderService;
-    private KafkaTemplate<Integer, Order> template;
 
     /**
      * Пока поставил заглушку, чтобы можно было просто постманом проверить работу
@@ -34,12 +32,8 @@ public class OrderController {
         order.setCustomer(customer);
         order.setDishes(List.of(dish));
         order.setSum(999);
-        order.setOrderStatus(OrderStatus.CREATED);
         order.setAddress("Address");
-        Order savedOrder = orderService.createOrder(order);
-        template.send("new-orders", savedOrder);
-        template.send("preorder", savedOrder);
-        return savedOrder;
+        return orderService.createOrder(order);
     }
 
     @GetMapping("/status/{id}")

@@ -1,6 +1,7 @@
 package ru.job4j.order.service;
 
 import lombok.AllArgsConstructor;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import ru.job4j.domain.model.Order;
 import ru.job4j.domain.model.OrderStatus;
@@ -12,9 +13,14 @@ import java.util.Optional;
 @AllArgsConstructor
 public class SimlpeOrderService implements OrderService {
     private final OrderRepository repository;
+    private KafkaTemplate<Integer, Order> template;
+
     @Override
     public Order createOrder(Order order) {
-        return repository.save(order);
+        Order savedOrder = repository.save(order);
+        template.send("new-orders", savedOrder);
+        template.send("preorder", savedOrder);
+        return savedOrder;
     }
 
     @Override
